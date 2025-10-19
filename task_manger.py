@@ -1,4 +1,6 @@
+# List for all the lists
 tasks = list()
+
 # Function to add a task
 def add_task():
     task_name = input("Enter your task: ")
@@ -6,29 +8,35 @@ def add_task():
     tasks.append({"Task Name":task_name, "Descripetion":task_description})
     view_task()
 
+# Function to View tasks
 def view_task():
     if tasks:
-        n=1
         for i in tasks:
+            n=1
             print(f'Number: {n}. Task Name: "{i["Task Name"]}. Task Description {i["Descripetion"]}": ')
+            n+=n
     else:
         print("No tasks yet")
 
+# Function to Updae tasks
 def update_task():
     view_task()
-    task_num = input("Your task number you want to edit")
-    task_num = int(task_num) - 1
-    if len(tasks) > task_num:
-        new_task_name = input("Enter your task (Keep Empty if you Don't want to change): ")
-        new_task_description = input("Describe your task(Keep Empty if you Don't want to change): ")
-        if new_task_name == "" and new_task_description == "":
-            tasks[task_num] = {"Task Name":new_task_name}
-        if new_task_name:
-            tasks[task_num] = {"Descripetion":new_task_description}
-        tasks[task_num] = {"Task Name":new_task_name, "Descripetion":new_task_description}
+    if tasks:
+        task_num = int(input("Your task number you want to edit: ")) - 1
+        if 0 <= task_num < len(tasks):
+            new_task_name = input("New title name: ")
+            new_task_desc = input("New title descreption: ")
+            if new_task_name:
+                tasks[task_num]["Descripetion"] = new_task_name
+            if new_task_name:
+                tasks[task_num]["Task Name"] = new_task_desc
+        else:
+            pass
+
     else:
         print("No tasks yet")
 
+# Function to Delete tasks
 def delete_task():
     view_task()
     task_num = input("Your task number you want to Edit: ")
