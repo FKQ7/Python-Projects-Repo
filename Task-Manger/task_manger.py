@@ -1,6 +1,7 @@
-# List for all the lists
-tasks = list()
+# Simple CLI Task Manager
 
+# List to store tasks
+tasks = list()
 # Function to add a task
 def add_task():
     task_name = input("Enter your task: ")
@@ -46,24 +47,27 @@ def delete_task():
     else:
         print("No tasks yet")
 
-while True:
-    print("Welcome to CLI Task Manager")
-    print("Type 1 if you want to Add a Task")
-    print("Type 2 if you want to View your tasks")
-    print("Type 3 if you want to Update your tasks")
-    print("Type 4 if you want to delete your tasks")
-    print("Type 5 if you want to Exit the CLI, Note: all your tasks will be deleted")
-    choice = input("Type your number: ")
-    if choice == '1':
-        add_task()
-    elif choice == '2':
-        view_task()
-    elif choice == '3':
-        update_task()
-    elif choice == '4':
-        delete_task()
-    elif choice == '5':
-        print("Exiting...")
-        break
-    else:
-        print("print a valid op number")
+def main():
+    while True:
+        print("Welcome to CLI Task Manager")
+        print("Type 1 if you want to Add a Task")
+        print("Type 2 if you want to View your tasks")
+        print("Type 3 if you want to Update your tasks")
+        print("Type 4 if you want to delete your tasks")
+        print("Type 5 if you want to Exit the CLI, Note: all your tasks will be deleted")
+        choice = input("Type your number: ")
+        if choice == '1':
+            add_task()
+        elif choice == '2':
+            view_task()
+        elif choice == '3':
+            update_task()
+        elif choice == '4':
+            delete_task()
+        elif choice == '5':
+            print("Exiting...")
+            break
+        else:
+            print("print a valid op number")
+if __name__ == "__main__":
+    main()
